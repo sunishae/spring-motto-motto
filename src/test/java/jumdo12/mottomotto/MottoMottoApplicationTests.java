@@ -1,10 +1,10 @@
-package jumdo12.springmottomotto;
+package jumdo12.mottomotto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringMottoMottoApplicationTests {
+class MottoMottoApplicationTests {
 
 	@Test
 	void contextLoads() {

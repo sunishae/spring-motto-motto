@@ -1,13 +1,13 @@
-package jumdo12.springmottomotto;
+package jumdo12.mottomotto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringMottoMottoApplication {
+public class MottoMottoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringMottoMottoApplication.class, args);
+		SpringApplication.run(MottoMottoApplication.class, args);
 	}
 
 }
