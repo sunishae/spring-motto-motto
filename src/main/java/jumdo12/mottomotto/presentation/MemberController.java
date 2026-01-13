@@ -1,8 +1,10 @@
 package jumdo12.mottomotto.presentation;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jumdo12.mottomotto.application.MemberService;
 import jumdo12.mottomotto.domain.Member;
-import jumdo12.mottomotto.presentation.dto.LoginRequest; // 로그인 가방
+import jumdo12.mottomotto.presentation.dto.LoginRequest;
 import jumdo12.mottomotto.presentation.dto.SignupRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -25,8 +27,14 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Void> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<Void> login(
+            @RequestBody LoginRequest loginRequest,
+            HttpServletRequest request
+    ) {
         Member member = memberService.login(loginRequest.email(), loginRequest.password());
+
+        HttpSession session = request.getSession();
+        session.setAttribute("LOGIN_MEMBER", member.getId());
 
         return ResponseEntity.ok().build();
     }

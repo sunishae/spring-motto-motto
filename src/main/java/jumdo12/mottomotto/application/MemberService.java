@@ -27,10 +27,6 @@ public class MemberService {
             throw new MottoException("이미 사용 중인 닉네임입니다.");
         }
 
-        if (!request.isPasswordMatching()) {
-            throw new MottoException("비밀번호가 일치하지 않습니다.");
-        }
-
         Member member = Member.builder()
                 .email(request.email())
                 .password(passwordEncoder.encode(request.password()))
